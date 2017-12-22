@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase Example</title>
+</head>
+<body>
+
+
+<h1 id="title"></h1>
+<h4 id="myName"></h4>
+<p id="programName"></p>
+
+<!--All you need to get stated with firebase web quickstart-->
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDnpdNXdysIpaWSnfjaVl1N-3ObesYG1H4",
+    authDomain: "webquickstart-943e8.firebaseapp.com",
+    databaseURL: "https://webquickstart-943e8.firebaseio.com",
+    projectId: "webquickstart-943e8",
+    storageBucket: "",
+    messagingSenderId: "96846827610"
+  };
+  firebase.initializeApp(config);
+    
+    var title = document.getElementById("title");
+    var dbRefTitle = firebase.database().ref().child("mainTitle");
+    dbRefTitle.on("value", snap => title.innerHTML = snap.val());
+    
+    
+    var myName = document.getElementById("myName");
+    var dbRefName = firebase.database().ref().child("username");
+    dbRefName.on("value", snap => myName.innerHTML = snap.val());
+    
+    
+    var programName = document.getElementById("programName");
+    var dbRefProgram = firebase.database().ref().child("program");
+    dbRefProgram.on("value", snap => programName.innerHTML = snap.val());
+    
+    
+    
+    
+    
+    
+</script>
+</body>
+</html>
